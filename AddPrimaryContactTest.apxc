@@ -1,0 +1,38 @@
+@isTest
+public class AddPrimaryContactTest {
+    
+    @isTest
+    public static void testQueueableClass() {
+
+    List<Account> accNy = new List<Account>();
+    List<Account> accCa = new List<Account>();
+        
+    for (Integer i = 0; i < 50; i++) {
+        
+        Account nY = new Account(Name='New Yorker Academic'+i, BillingState = 'NY');
+        accNy.add(nY);        
+      	}    
+        insert accNy;
+        
+    for (Integer i = 0; i < 50; i++) {
+        Account cA = new Account(Name='California Rocker'+i, BillingState = 'CA');
+        accCa.add(cA);
+    }
+        insert accCa;                 
+  
+    
+	   
+    Contact passedContact = new Contact(FirstName ='Claudio', LastName='Henrique');
+    insert passedContact;
+        
+    AddPrimaryContact contactAdder = new AddPrimaryContact(passedContact, 'CA');       
+        
+        Test.startTest();      
+        Id jobId = System.enqueueJob(new AddPrimaryContact(passedContact, 'CA'));
+        Test.stopTest();  
+        
+        List<Contact> contacts = [SELECT Id FROM Contact WHERE Contact.Account.BillingState = 'CA'];
+                                
+        System.assertEquals(50, contacts.size());
+	}
+}

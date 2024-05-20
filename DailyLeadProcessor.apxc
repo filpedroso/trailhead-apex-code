@@ -1,0 +1,13 @@
+public without sharing class DailyLeadProcessor implements Schedulable {
+    
+    // find Leads without source and updates it in a schedulable basis
+    public void execute(SchedulableContext ctx){
+        
+    List<Lead> lL = [SELECT Id, LeadSource FROM Lead WHERE LeadSource = null LIMIT 200];
+        
+    for(Lead lead : lL) {
+        lead.LeadSource = 'Dreamforce';
+    }
+        update lL;
+ }
+}

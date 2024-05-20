@@ -1,0 +1,11 @@
+@IsTest
+global class AnimalLocatorMock implements HttpCalloutMock {
+    global HTTPResponse respond(HTTPRequest req) {
+       
+        HttpResponse res = new HttpResponse();
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{"animal" : {"name": "Mock Animal"}}');
+        res.setStatusCode(200);
+        return res;
+    }
+}
