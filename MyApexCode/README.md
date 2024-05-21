@@ -1,6 +1,5 @@
-# trailhead-apex-code
+>>> THIS CODE IS PORTFOLIO INTENDED AND IS NOT TO BE USED WITHOUT AUTHORIZATION, SPECIALLY TO FULLY OR PARTIALLY FULFILL ANY OF TRAILHEAD'S EXERCISES <<<
 
-Code from projects in Salesforce's Trailhead by myself
 
 # soqlTemplate: simple SOQL for retrieving an object and printing to debug view.
 
