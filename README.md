@@ -1,4 +1,4 @@
-# Some Salesforce Apex Tools
+# Salesforce Apex Tools
 
 ## soqlTemplate
 Simple SOQL query to retrieve an object and print it to the debug view.
